@@ -5,12 +5,9 @@ import java.math.BigDecimal;
 
 public class Produto implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3747930677506352739L;
 
-	private Long id;
+	private Integer id;
 	
 	private String nome;
 	
@@ -18,11 +15,16 @@ public class Produto implements Serializable {
 	
 	private BigDecimal preco;
 	
-	public Long getId() {
+	public Produto(Integer id) {
+		super();
+		this.id = id;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
