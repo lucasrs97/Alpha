@@ -4,34 +4,47 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Pedido implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pedido")
+public class Pedido implements Serializable {
 	
 	private static final long serialVersionUID = 3799446125353661698L;
 
-	private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
+	@Column(nullable = false)
 	private String status;
 	
+	@Column(nullable = false)
 	private String nomeCliente;
 	
+	@Column(nullable = false)
 	private BigDecimal valorTotal;
 	
+	@Column(nullable = false)
 	private BigDecimal desconto;
 	
+	@Column(nullable = false)
 	private String observacoes;
 	
+	@ElementCollection(targetClass=Integer.class)
 	private List<ItemPedido> itensPedido;
 
-	public Pedido(Integer id) {
-		super();
-		this.id = id;
-	}
-
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(Integer id) {
+	
+	public void setId(Long id) {
 		this.id = id;
 	}
 

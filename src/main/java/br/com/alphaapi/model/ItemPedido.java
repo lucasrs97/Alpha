@@ -2,30 +2,38 @@ package br.com.alphaapi.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "item_pedido")
 public class ItemPedido implements Serializable {
 
 	private static final long serialVersionUID = -3650618279715614267L;
 	
-	private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
+	@Column(nullable = false)
 	private Integer quantidade;
 	
+	@Column(nullable = false)
 	private String observacoes;
 	
+	@ManyToOne
 	private Produto produto;
 	
-	private Pedido pedido;
-	
-	public ItemPedido(Integer id) {
-		super();
-		this.id = id;
-	}
-
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(Integer id) {
+	
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -53,11 +61,4 @@ public class ItemPedido implements Serializable {
 		this.observacoes = observacoes;
 	}
 
-	public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
 }

@@ -8,10 +8,6 @@ public class HistoricoPedido extends Pedido{
 	
 	private GregorianCalendar horaEncerramento;
 
-	public HistoricoPedido(Integer id) {
-		super(id);
-	}
-
 	public GregorianCalendar getHoraEncerramento() {
 		return horaEncerramento;
 	}
